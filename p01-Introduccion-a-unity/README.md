@@ -8,7 +8,7 @@ En esta práctica se trabajó con **Unity** para familiarizarnos con el editor, 
 ### Elementos implementados
 - **Incluir objetos 3D básicos.**  
   - Se añadieron los objetos: **Cubo**, **Cápsula** y **Cilindro**. Se les ha dado un material simple rojo.
-  - Están agrupados en el objeto vació denominado "ObjetosBasicos".
+  - Están agrupados en el objeto vació denominado "Basicos".
 - **Incluir en el proyecto el paquete Starter Assets**
   - Se incluyó el paquete **[Starter Assets](https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526?srsltid=AfmBOooOfzG9vjTZm_1M6-V6_A74crJlWHGpXM7b-TEFd1_TqJ9kxvkz)**   y se utilizó el prefab **Third Person Controller** para el personaje principal.  
   - También se han añadido dos prefabs de entorno: el edificio y las escaleras (Están agrupados en el objeto vació denominado "Casa"). También se les ha dado un material simple negro.
