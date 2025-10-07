@@ -29,14 +29,14 @@
 	* Cada 120 frames se debe cambiar el valor de una posición aleatoria y asignar el nuevo color al objeto. 
 	* Parametrizar la cantidad de frames de espera para poderlo cambiar desde el inspector.
 
-Se ha añadido el script: [ej1-II.cs](./p02-movimientos/scripts/ej1-II.cs). 
+Se ha añadido el script: [ej1-II.cs](./scripts/ej1-II.cs). 
 
 * [Serialización](https://docs.unity3d.com/Manual/script-Serialization.html)
 * [Random](https://docs.unity3d.com/Manual/class-Random.html)
 * [Renderer](https://docs.unity3d.com/ScriptReference/Renderer.html)
 * [Color](https://docs.unity3d.com/ScriptReference/Color.html)
 
-![ejercicio1.gif](./p02-movimientos/gifs/ej1-II.gif)
+![ejercicio1.gif](./gifs/ej1-II.gif)
 
 ### Ejercicio 2 <div id='dos'/>
 
@@ -50,10 +50,10 @@ Se ha añadido el script: [ej1-II.cs](./p02-movimientos/scripts/ej1-II.cs).
 * [Vector3](https://docs.unity3d.com/ScriptReference/Vector3.html)
 
 Se han creado las variables pedidas más unas variables que se usan para mostrar los resultados en el inspector.
-Se puede ver el código del script en [ej2-II.cs](./p02-movimientos/scripts/ej2-II.cs).
+Se puede ver el código del script en [ej2-II.cs](./scripts/ej2-II.cs).
 En el gif se puede ver cómo están las variables en el inspector y cómo se muestran los resultados por consola.
 
-![ejercicio2.gif](./p02-movimientos/gifs/ej2-II.gif)
+![ejercicio2.gif](./gifs/ej2-II.gif)
 
 ### Ejercicio 3 <div id='tres'/>
 
@@ -62,10 +62,10 @@ En el gif se puede ver cómo están las variables en el inspector y cómo se mue
 * [Transform](https://docs.unity3d.com/ScriptReference/Transform.html)
 
 Este ejercicio es muy similar al de la práctica anterior. 
-El script está en [ej3-II.cs](./p02-movimientos/scripts/ej3-II.cs). 
+El script está en [ej3-II.cs](./scripts/ej3-II.cs). 
 En la ejecución se muestra por consola la posición actual de la esfera (y se comprueba que es igual a la del inspector).
 
-![ejercicio3.gif](./p02-movimientos/gifs/ej3-II.gif).
+![ejercicio3.gif](./gifs/ej3-II.gif).
 
 ### Ejercicio 4 <div id='cuatro'/>
 
@@ -73,9 +73,9 @@ En la ejecución se muestra por consola la posición actual de la esfera (y se c
 
 Para poder hacer este ejercicio se han buscado los objetos por su etiqueta.
 Se llama a la función "Distance" de la clase Vector3 con las posiciones. 
-Se puede ver en el script: [ej4-II.cs](./p02-movimientos/scripts/ej4-II.cs). 
+Se puede ver en el script: [ej4-II.cs](./scripts/ej4-II.cs). 
 
-![ejercicio4.gif](./p02-movimientos/gifs/ej4-II.gif).
+![ejercicio4.gif](./gifs/ej4-II.gif).
 
 
 ### Ejercicio 5 <div id='cinco'/>
@@ -86,12 +86,12 @@ Se puede ver en el script: [ej4-II.cs](./p02-movimientos/scripts/ej4-II.cs).
 
 En este apartado se ha usado un componente del tipo "Variable". En él, se ha añadido el desplazamiento.
 Se puede apreciar en el gif ese componente (en la zona del inspector).
-El script que se encarga de detectar si se ha pulsado el espacio y de sumar el desplazamiento es [ej5-II.cs](./p02-movimientos/scripts/ej5-II.cs).
+El script que se encarga de detectar si se ha pulsado el espacio y de sumar el desplazamiento es [ej5-II.cs](./scripts/ej5-II.cs).
 
 * [Class Variables](https://docs.unity3d.com/Packages/com.unity.visualscripting@1.9/api/Unity.VisualScripting.Variables.html)
 * [Input.GetAxis()](https://docs.unity3d.com/ScriptReference/Input.GetAxis.html)
 
-![ejercicio5.gif](./p02-movimientos/gifs/ej5-II.gif).
+![ejercicio5.gif](./gifs/ej5-II.gif).
 
 ### Ejercicio 6 <div id='seis'/>
 
@@ -101,8 +101,8 @@ El script que se encarga de detectar si se ha pulsado el espacio y de sumar el d
 
 [Input](https://docs.unity3d.com/ScriptReference/Input.html)
 
-Script: [ej6-II.cs](./p02-movimientos/scripts/ej6-II.cs).
-![ejercicio6.gif](./p02-movimientos/gifs/ej6-II.gif).
+Script: [ej6-II.cs](./scripts/ej6-II.cs).
+![ejercicio6.gif](./gifs/ej6-II.gif).
 
 ### Ejercicio 7 <div id='siete'/>
 
@@ -110,8 +110,8 @@ Script: [ej6-II.cs](./p02-movimientos/scripts/ej6-II.cs).
 
 [Input Manager](https://docs.unity3d.com/Manual/class-InputManager.html)
 
-Script: [ej7-II.cs](./p02-movimientos/scripts/ej7-II.cs).
-![ejercicio7.gif](./p02-movimientos/gifs/ej7-II.gif).
+Script: [ej7-II.cs](./scripts/ej7-II.cs).
+![ejercicio7.gif](./gifs/ej7-II.gif).
 
 ### Ejercicio 8 <div id='ocho'/>
 
@@ -122,8 +122,8 @@ Script: [ej7-II.cs](./p02-movimientos/scripts/ej7-II.cs).
 	* la posición del cubo tiene y>0
   * intercambiar movimiento relativo al sistema de referencia local y el mundial.
 
-Script: [ej8-II.cs](./p02-movimientos/scripts/ej8-II.cs).
-![ejercicio8.gif](./p02-movimientos/gifs/ej8-II.gif).
+Script: [ej8-II.cs](./scripts/ej8-II.cs).
+![ejercicio8.gif](./gifs/ej8-II.gif).
 
 ### Ejercicio 9 <div id='nueve'/>
 
@@ -131,8 +131,8 @@ Script: [ej8-II.cs](./p02-movimientos/scripts/ej8-II.cs).
 
 Al no estar usando la propoción con el tiempo, los objetos se mueven extremadamente rápido.
 
-Script: [ej9-II.cs](./p02-movimientos/scripts/ej9-II.cs).
-![ejercicio9.gif](./p02-movimientos/gifs/ej9-II.gif).
+Script: [ej9-II.cs](./scripts/ej9-II.cs).
+![ejercicio9.gif](./gifs/ej9-II.gif).
 
 ### Ejercicio 10 <div id='diez'/>
 
@@ -143,16 +143,16 @@ Script: [ej9-II.cs](./p02-movimientos/scripts/ej9-II.cs).
 
 Ahora vemos que el movimiento es mucho más natural.
 
-Script: [ej10-II.cs](./p02-movimientos/scripts/ej10-II.cs).
-![ejercicio10.gif](./p02-movimientos/gifs/ej10-II.gif).
+Script: [ej10-II.cs](./scripts/ej10-II.cs).
+![ejercicio10.gif](./gifs/ej10-II.gif).
 
 ### Ejercicio 11 <div id='once'/>
 
 11. _Ejercicio adicional incluido en la práctica (ej10)._
   * El cubo se mueva hacia la posición de la esfera
 
-Script: [ej11-II.cs](./p02-movimientos/scripts/ej11-II.cs).
-![ejercicio11.gif](./p02-movimientos/gifs/ej11-II.gif).
+Script: [ej11-II.cs](./scripts/ej11-II.cs).
+![ejercicio11.gif](./gifs/ej11-II.gif).
 
 ### Ejercicio 12 <div id='doce'/>
 
@@ -162,8 +162,8 @@ referencia
 
 [LookAt](https://docs.unity3d.com/ScriptReference/Transform.LookAt.html)
 
-Script: [ej12-II.cs](./p02-movimientos/scripts/ej12-II.cs).
-![ejercicio12.gif](./p02-movimientos/gifs/ej12-II.gif).
+Script: [ej12-II.cs](./scripts/ej12-II.cs).
+![ejercicio12.gif](./gifs/ej12-II.gif).
 
 ### Ejercicio 13 <div id='trece'/>
 
@@ -172,8 +172,8 @@ Script: [ej12-II.cs](./p02-movimientos/scripts/ej12-II.cs).
 [Fordward](https://docs.unity3d.com/ScriptReference/Transform-forward.html)     
 [Debug.DrawRay](https://docs.unity3d.com/ScriptReference/Debug.DrawRay.html) 
 
-Script: [ej13-II.cs](./p02-movimientos/scripts/ej13-II.cs).
-![ejercicio13.gif](./p02-movimientos/gifs/ej13-II.gif).
+Script: [ej13-II.cs](./scripts/ej13-II.cs).
+![ejercicio13.gif](./gifs/ej13-II.gif).
 
 ---
 
