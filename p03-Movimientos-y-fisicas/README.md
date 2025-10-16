@@ -125,12 +125,80 @@ Aquí la situación parece exactamente igual a la de antes; sin embargo, la dife
 
 ### Ejercicios de la práctica <div id='practica'/>
 
-#### Ejercicio 1 <div id='uno'/>
+### Ejercicio 1 <div id='uno'/>
 
-#### Ejercicio 2 <div id='dos'/>
+* Se creó un personaje (Capsule o Cube) con `Rigidbody`.  
+* Se controla su desplazamiento con las teclas **WASD** o las flechas.  
+* El movimiento está influenciado por física (`Rigidbody.velocity`), pero el jugador mantiene el control total.  
+* El script principal está en [PlayerMovement.cs](./src/PlayerMovement.cs).  
+* Se corrigió el uso del nuevo sistema de Input ajustando **Active Input Handling → Both** en *Project Settings*.  
+* Variables públicas: `speed`.  
+* Métodos adicionales: `ChangeColor(Color)`, `ResetColor()`, `AddDamage(int)` — usados en ejercicios posteriores.
 
-#### Ejercicio 3 <div id='tres'/>
+[Input](https://docs.unity3d.com/ScriptReference/Input.html)
 
-#### Ejercicio 4 <div id='cuatro'/>
+![ejercicio1.gif](./gif/ejercicios/ejercicio1.gif)
 
-#### Ejercicio 5 <div id='cinco'/>
+---
+
+### Ejercicio 2 <div id='dos'/>
+
+* Se crean por código varios cubos o esferas con `Rigidbody` dinámico.  
+* Cada uno muestra por consola el nombre del objeto con el que colisiona.  
+* Además, cambia de color al colisionar y vuelve a su color original al separarse.  
+* Scripts principales:
+  * [ChangeColorOnCollision.cs](./src/ChangeColorOnCollision.cs) — maneja las colisiones y los cambios de color.
+
+![ejercicio2.gif](./gif/ejercicios/ejercicio2.gif)
+
+---
+
+### Ejercicio 3 <div id='tres'/>
+
+* Se crearon **zonas invisibles** (cubos con `Is Trigger = true`) que reaccionan al jugador.  
+* Tipos de zonas:
+  * Zona de color → cambia el color del personaje mientras esté dentro.
+  * Zona de daño → incrementa la variable `damage` del jugador.  
+* Scripts principales:
+  * [PlayerMovement.cs](./src/PlayerMovement.cs) — incluye métodos de cambio de color y daño.
+  * [ZoneEffect.cs](./src/ZoneEffect.cs) — gestiona los triggers y efectos.
+* Las zonas se hacen invisibles desactivando el `Mesh Renderer` o usando un objeto vacío con `BoxCollider (Is Trigger)`.
+
+![ejercicio3.gif](./gif/ejercicios/ejercicio3.gif)
+
+---
+
+### Ejercicio 4 <div id='cuatro'/>
+
+* Se configuraron **tres capas (Layers)**:
+  * `Player`
+  * `Enemy`
+  * `Collectable`
+* Se ajustó la **Layer Collision Matrix** en *Edit → Project Settings → Physics*:  
+  * Los enemigos solo colisionan con el jugador.  
+  * Los recolectables solo son detectados mediante triggers.  
+* Scripts utilizados:
+  * [PlayerMovement.cs](./src/PlayerMovement.cs)
+  * [EnemyCollision.cs](./src/EnemyCollision.cs)
+  * [CollectableTrigger.cs](./src/CollectableTrigger.cs)
+
+![ejercicio4.gif](./gif/ejercicios/ejercicio4.gif)
+
+---
+
+### Ejercicio 5 <div id='cinco'/>
+
+* Se crearon **tres Physic Materials**:
+  * `Resbaladizo` → Fricción baja, sin rebote.
+  * `Rugoso` → Alta fricción, sin rebote.
+  * `ReboteAlto` → Fricción baja, rebote alto.
+* Cada objeto tiene asignado un material diferente.  
+* Al presionar la tecla **X**, los objetos son lanzados usando `AddForce()`.  
+* Scripts principales:
+  * [ObjectLauncher.cs](./src/ObjectLauncher.cs) — aplica la fuerza con `AddForce()`.
+
+[Physic Material](https://docs.unity3d.com/Manual/class-PhysicMaterial.html)
+
+![ejercicio5.gif](./gif/ejercicios/ejercicio5.gif)
+
+---
