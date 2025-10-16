@@ -121,4 +121,16 @@ En teoría, en esta configuración la esfera deja pasar objetos a través de ell
 
 Aquí la situación parece exactamente igual a la de antes; sin embargo, la diferencia es que además de servir como trigger, la esfera se mueve. De hecho, en esta situación si el plano no fuera físico podemos ver que mueve el cubo y atraviesa el plano.
 
-![fisicas9.gif](./gifs/fisicas/Situacion9.gif)   
+![fisicas9.gif](./gifs/fisicas/Situacion9.gif)
+
+### Ejercicios de la práctica <div id='practica'/>
+
+#### Ejercicio 1 <div id='uno'/>
+
+#### Ejercicio 2 <div id='dos'/>
+
+#### Ejercicio 3 <div id='tres'/>
+
+#### Ejercicio 4 <div id='cuatro'/>
+
+#### Ejercicio 5 <div id='cinco'/>
