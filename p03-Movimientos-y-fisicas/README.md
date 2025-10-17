@@ -46,7 +46,7 @@ En este caso el cubo es el único que puede moverse por el motor de físicas (y 
 
 En este caso tanto el cubo como la esfera son movidos por el motor de físicas.
 
-![fisicas2.gif](./gifs/fisicas/Situacion2.gif)    
+![fisicas2.gif](./gif/fisicas/Situacion2.gif)    
 
 #### Situación 3 <div id='fisicas3'/>
 
@@ -56,7 +56,7 @@ En este caso tanto el cubo como la esfera son movidos por el motor de físicas.
 
 En este caso, la esfera a pesar de tener Rigidbody no puede ser movida por el motor de físicas.
 
-![fisicas3.gif](./gifs/fisicas/Situacion3.gif)   
+![fisicas3.gif](./gif/fisicas/Situacion3.gif)   
 
 #### Situación 4 <div id='fisicas4'/>
 
@@ -66,7 +66,7 @@ En este caso, la esfera a pesar de tener Rigidbody no puede ser movida por el mo
 
 Al tener los tres comportamiento físico, se caen los tres.
 
-![fisicas4.gif](./gifs/fisicas/Situacion4.gif)    
+![fisicas4.gif](./gif/fisicas/Situacion4.gif)    
 
 #### Situación 5 <div id='fisicas5'/>
 
@@ -77,7 +77,7 @@ Al tener los tres comportamiento físico, se caen los tres.
 
 La esfera, a pesar de tener más masa no se mueve distinto, pues estamos en un entorno sin fricción (principio de equivalencia de Galileo, que establece que en ausencia de otras fuerzas, todos los cuerpos aceleran al mismo ritmo bajo la gravedad). Además, Unity ajusta automáticamente las velocidades usando el motor de física, por lo que aunque la masa afecta la inercia y la forma en que los objetos responden a las fuerzas, la velocidad final no depende de la masa en escenarios en los que las fuerzas aplicadas son uniformes y continuas. De hecho, si añadimos fricción podemos ver que la esfera "empuja" al cubo.
 
-![fisicas5.gif](./gifs/fisicas/Situacion5.gif)  
+![fisicas5.gif](./gif/fisicas/Situacion5.gif)  
 
 #### Situación 6 <div id='fisicas6'/>
 
@@ -88,7 +88,7 @@ La esfera, a pesar de tener más masa no se mueve distinto, pues estamos en un e
 
 Estamos ante el mismo caso que antes.
 
-![fisicas6.gif](./gifs/fisicas/Situacion6.gif)    
+![fisicas6.gif](./gif/fisicas/Situacion6.gif)    
 
 #### Situación 7 <div id='fisicas7'/>
 
@@ -99,7 +99,7 @@ Estamos ante el mismo caso que antes.
 
 Al tener fricción la esfera, le cuesta más moverse.
 
-![fisicas7.gif](./gifs/fisicas/Situacion7.gif)   
+![fisicas7.gif](./gif/fisicas/Situacion7.gif)   
 
 #### Situación 8 <div id='fisicas8'/>
 
@@ -110,7 +110,7 @@ Al tener fricción la esfera, le cuesta más moverse.
 
 En teoría, en esta configuración la esfera deja pasar objetos a través de ella. Sin embargo, por la situación actual no se da el caso. Es decir, la esfera está actuando esencialmente como un sensor (si algún objeto chocase con ella se podría detectar).
 
-![fisicas8.gif](./gifs/fisicas/Situacion8.gif)    
+![fisicas8.gif](./gif/fisicas/Situacion8.gif)    
 
 #### Situación 9 <div id='fisicas9'/>
 
@@ -121,7 +121,7 @@ En teoría, en esta configuración la esfera deja pasar objetos a través de ell
 
 Aquí la situación parece exactamente igual a la de antes; sin embargo, la diferencia es que además de servir como trigger, la esfera se mueve. De hecho, en esta situación si el plano no fuera físico podemos ver que mueve el cubo y atraviesa el plano.
 
-![fisicas9.gif](./gifs/fisicas/Situacion9.gif)
+![fisicas9.gif](./gif/fisicas/Situacion9.gif)
 
 ### Ejercicios de la práctica <div id='practica'/>
 
