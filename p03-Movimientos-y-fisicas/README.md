@@ -137,7 +137,7 @@ Aquí la situación parece exactamente igual a la de antes; sin embargo, la dife
 
 [Input](https://docs.unity3d.com/ScriptReference/Input.html)
 
-![ejercicio1.gif](./gif/ejercicios/ejercicio1.gif)
+![ejercicio1.gif](./gif/ejerciciosEjercicio1.gif)
 
 ---
 
@@ -149,7 +149,7 @@ Aquí la situación parece exactamente igual a la de antes; sin embargo, la dife
 * Scripts principales:
   * [ChangeColorOnCollision.cs](./src/ChangeColorOnCollision.cs) — maneja las colisiones y los cambios de color.
 
-![ejercicio2.gif](./gif/ejercicios/ejercicio2.gif)
+![ejercicio2.gif](./gif/ejerciciosEjercicio2.gif)
 
 ---
 
@@ -164,7 +164,7 @@ Aquí la situación parece exactamente igual a la de antes; sin embargo, la dife
   * [ZoneEffect.cs](./src/ZoneEffect.cs) — gestiona los triggers y efectos.
 * Las zonas se hacen invisibles desactivando el `Mesh Renderer` o usando un objeto vacío con `BoxCollider (Is Trigger)`.
 
-![ejercicio3.gif](./gif/ejercicios/ejercicio3.gif)
+![ejercicio3.gif](./gif/ejerciciosEjercicio3.gif)
 
 ---
 
@@ -182,7 +182,7 @@ Aquí la situación parece exactamente igual a la de antes; sin embargo, la dife
   * [EnemyCollision.cs](./src/EnemyCollision.cs)
   * [CollectableTrigger.cs](./src/CollectableTrigger.cs)
 
-![ejercicio4.gif](./gif/ejercicios/ejercicio4.gif)
+![ejercicio4.gif](./gif/ejerciciosEjercicio4.gif)
 
 ---
 
@@ -199,6 +199,6 @@ Aquí la situación parece exactamente igual a la de antes; sin embargo, la dife
 
 [Physic Material](https://docs.unity3d.com/Manual/class-PhysicMaterial.html)
 
-![ejercicio5.gif](./gif/ejercicios/ejercicio5.gif)
+![ejercicio5.gif](./gif/ejerciciosEjercicio5.gif)
 
 ---
