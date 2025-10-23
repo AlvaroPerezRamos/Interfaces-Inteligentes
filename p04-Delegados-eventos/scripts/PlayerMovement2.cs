@@ -6,7 +6,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement2 : MonoBehaviour
 {
     public float speed = 5f;          // velocidad de movimiento
     private Rigidbody rb;

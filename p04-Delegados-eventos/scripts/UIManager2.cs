@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIManager : MonoBehaviour
+public class UIManager2 : MonoBehaviour
 {
   [Header("Score UI")]
   public Text scoreText;

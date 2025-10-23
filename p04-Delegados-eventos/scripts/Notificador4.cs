@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Notificador : MonoBehaviour
+public class Notificador4 : MonoBehaviour
 {
     /// Delegado para notificar
     public delegate void Mensaje();

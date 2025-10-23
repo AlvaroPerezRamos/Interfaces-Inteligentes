@@ -9,9 +9,6 @@ public class ScoreManager2 : MonoBehaviour
 {
   public int score = 0;
   private UIManager uiManager;
-  private int nextRewardThreshold = 100;
-  private GameManager gameManager;
-
 
   void Start()
   {
@@ -23,7 +20,7 @@ public class ScoreManager2 : MonoBehaviour
   {
     int oldScore = score;
     score += points;
-    Debug.Log($"Puntos base: +{points} × {gameManager.GetGananciasMultiplier():F2} = +{puntosFinales}. Total: {score}");
+    Debug.Log($"Total: {score}");
     UpdateUI();
   }
 

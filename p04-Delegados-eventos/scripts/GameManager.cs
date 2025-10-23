@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
   [Header("Incrementos")]
   public float incrementoPorMejora = 0.01f;
 
-  private UIManager uiManager;
+  private UIManager2 uiManager;
   private PlayerMovement playerMovement;
 
   void Awake()
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
   void Start()
   {
-    uiManager = FindFirstObjectByType<UIManager>();
+    uiManager = FindFirstObjectByType<UIManager2>();
     playerMovement = FindFirstObjectByType<PlayerMovement>();
     ActualizarUImejoras();
   }

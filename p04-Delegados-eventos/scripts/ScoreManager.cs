@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
   {
     int oldScore = score;
     score += points;
-    Debug.Log($"Puntos base: +{points} × {gameManager.GetGananciasMultiplier():F2} = +{puntosFinales}. Total: {score}");
+    Debug.Log($"Total: {score}");
   }
 
   public void ResetScore()

@@ -9,13 +9,12 @@ public class ShieldRespawnManager : MonoBehaviour
 {
   public float respawnTime = 5f;
 
-  private ShieldCollectible2 shieldCollectible;
+  private ShieldCollectible shieldCollectible;
   private bool isCollected = false;
 
   void Start()
   {
-    shieldCollectible = GetComponent<ShieldCollectible2>();
-    gameManager = FindFirstObjectByType<GameManager>();
+    shieldCollectible = GetComponent<ShieldCollectible>();
   }
 
   void OnTriggerEnter(Collider other)

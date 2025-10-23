@@ -1,24 +1,20 @@
-/*
-  ComportamientoHumanoide.cs
-  Controla el movimiento y comportamiento de los humanoides en respuesta a eventos.
-*/  
-
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class ComportamientoHumanoide : MonoBehaviour
+public class ComportamientoHumanoide2 : MonoBehaviour
 {
   public Notificador3 notificador;
   public float speed = 2.5f;
   public float rotSpeed = 4f;
   public GameObject shield1;
   public GameObject shield2;
+
   private bool moveToShield1 = false;
   private bool moveToShield2 = false;
   private Animator anim;
   private Renderer humanoidRenderer;
   private Color originalColor;
-  private bool colorChanged = false; // 👈 Nueva variable
+  private bool colorChanged = false;
 
   void Start()
   {
@@ -31,7 +27,7 @@ public class ComportamientoHumanoide : MonoBehaviour
 
     if (notificador == null)
     {
-      Debug.LogError($"{name} no tiene asignado el Notificador en el inspector.");
+      Debug.LogError($"{name} no tiene asignado el Notificador3 en el inspector.");
       return;
     }
 
@@ -48,16 +44,29 @@ public class ComportamientoHumanoide : MonoBehaviour
 
   void Update()
   {
-    if (moveToShield1 && shield1 != null)
+    // Verificar si el escudo objetivo aún existe y está activo
+    if (moveToShield1 && (shield1 == null || !shield1.activeInHierarchy))
+    {
+      moveToShield1 = false;
+      if (anim != null)
+        anim.SetBool("isWalking", false);
+      Debug.Log($"{name} se detuvo - escudo tipo 1 no disponible");
+    }
+
+    if (moveToShield2 && (shield2 == null || !shield2.activeInHierarchy))
+    {
+      moveToShield2 = false;
+      if (anim != null)
+        anim.SetBool("isWalking", false);
+      Debug.Log($"{name} se detuvo - escudo tipo 2 no disponible");
+    }
+
+    // Movimiento normal solo si el escudo está disponible
+    if (moveToShield1 && shield1 != null && shield1.activeInHierarchy)
       MoveTowards(shield1.transform);
 
-    if (moveToShield2 && shield2 != null)
+    if (moveToShield2 && shield2 != null && shield2.activeInHierarchy)
       MoveTowards(shield2.transform);
-
-    if (colorChanged)
-    {
-      CheckIfTargetShieldGone();
-    }
   }
 
   void MoveTowards(Transform target)
@@ -96,21 +105,45 @@ public class ComportamientoHumanoide : MonoBehaviour
     moveToShield2 = false;
   }
 
+  // Método para reaccionar cuando reaparezcan los escudos
+  public void OnShieldRespawned(GameObject respawnedShield)
+  {
+    // Si es humanoide tipo 1 y reaparece SU escudo tipo 1 asignado, reanudar movimiento
+    if (CompareTag("Humanoide_Tipo1") && respawnedShield.CompareTag("Shield_Tipo1"))
+    {
+      if (shield1 == respawnedShield)
+      {
+        moveToShield1 = true;
+        Debug.Log($"{name} reanuda movimiento hacia escudo tipo 1");
+      }
+    }
+    // Si es humanoide tipo 2 y reaparece SU escudo tipo 2 asignado, reanudar movimiento
+    else if (CompareTag("Humanoide_Tipo2") && respawnedShield.CompareTag("Shield_Tipo2"))
+    {
+      if (shield2 == respawnedShield)
+      {
+        moveToShield2 = true;
+        Debug.Log($"{name} reanuda movimiento hacia escudo tipo 2");
+      }
+    }
+  }
+
   private void OnTriggerEnter(Collider other)
   {
     if (other.CompareTag("Shield_Tipo1") && !colorChanged)
     {
       CambiarColor(Color.green);
       colorChanged = true;
-      Debug.Log($"{name} cambió de color al tocar escudo tipo 1");
+      Debug.Log($"{name} cambió de color PERMANENTE al tocar escudo tipo 1");
     }
     if (other.CompareTag("Shield_Tipo2") && !colorChanged)
     {
       CambiarColor(Color.red);
       colorChanged = true;
-      Debug.Log($"{name} cambió de color al tocar escudo tipo 2");
+      Debug.Log($"{name} cambió de color PERMANENTE al tocar escudo tipo 2");
     }
   }
+
   void CambiarColor(Color nuevoColor)
   {
     if (humanoidRenderer != null)
@@ -120,19 +153,8 @@ public class ComportamientoHumanoide : MonoBehaviour
       humanoidRenderer.material = m;
     }
   }
-  public void ResetColor()
-  {
-    if (humanoidRenderer != null && colorChanged)
-    {
-      Material m = new Material(humanoidRenderer.material);
-      m.color = originalColor;
-      humanoidRenderer.material = m;
-      colorChanged = false;
-      Debug.Log($"{name} color reseteado a original");
-    }
-  }
 
-  // ej 7
+  // Métodos públicos para control externo
   public void StopMovement()
   {
     moveToShield1 = false;
@@ -159,24 +181,30 @@ public class ComportamientoHumanoide : MonoBehaviour
     }
   }
 
-  void CheckIfTargetShieldGone()
+  public void ResetColor()
   {
-    GameObject targetShield = null;
-
-    if (CompareTag("Humanoide_Tipo1") && moveToShield1)
+    if (humanoidRenderer != null)
     {
-      targetShield = shield1;
+      Material m = new Material(humanoidRenderer.material);
+      m.color = originalColor;
+      humanoidRenderer.material = m;
+      colorChanged = false;
     }
-    else if (CompareTag("Humanoide_Tipo2") && moveToShield2)
-    {
-      targetShield = shield2;
-    }
+  }
 
-    // Si el escudo objetivo está desactivado o destruido, volver al color original
-    if (targetShield != null && !targetShield.activeInHierarchy)
+  // Para limpiar suscripciones
+  void OnDestroy()
+  {
+    if (notificador != null)
     {
-      ResetColor();
-      Debug.Log($"{name} volvió al color original - escudo desapareció");
+      if (CompareTag("Humanoide_Tipo1"))
+      {
+        notificador.OnTriggerHumanoide2 -= OnHumanoide2Touched;
+      }
+      else if (CompareTag("Humanoide_Tipo2"))
+      {
+        notificador.OnTriggerHumanoide1 -= OnHumanoide1Touched;
+      }
     }
   }
 }
