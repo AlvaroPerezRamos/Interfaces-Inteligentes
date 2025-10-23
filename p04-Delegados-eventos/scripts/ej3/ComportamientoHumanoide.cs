@@ -6,15 +6,15 @@ public class ComportamientoHumanoide : MonoBehaviour
   public Notificador3 notificador;
   public float speed = 2.5f;
   public float rotSpeed = 4f;
+
   public GameObject shield1;
   public GameObject shield2;
-
   private bool moveToShield1 = false;
   private bool moveToShield2 = false;
   private Animator anim;
+
   private Renderer humanoidRenderer;
   private Color originalColor;
-  private bool colorChanged = false;
 
   void Start()
   {
@@ -44,28 +44,10 @@ public class ComportamientoHumanoide : MonoBehaviour
 
   void Update()
   {
-    // Verificar si el escudo objetivo aún existe y está activo
-    if (moveToShield1 && (shield1 == null || !shield1.activeInHierarchy))
-    {
-      moveToShield1 = false;
-      if (anim != null)
-        anim.SetBool("isWalking", false);
-      Debug.Log($"{name} se detuvo - escudo tipo 1 no disponible");
-    }
-
-    if (moveToShield2 && (shield2 == null || !shield2.activeInHierarchy))
-    {
-      moveToShield2 = false;
-      if (anim != null)
-        anim.SetBool("isWalking", false);
-      Debug.Log($"{name} se detuvo - escudo tipo 2 no disponible");
-    }
-
-    // Movimiento normal solo si el escudo está disponible
-    if (moveToShield1 && shield1 != null && shield1.activeInHierarchy)
+    if (moveToShield1 && shield1 != null)
       MoveTowards(shield1.transform);
 
-    if (moveToShield2 && shield2 != null && shield2.activeInHierarchy)
+    if (moveToShield2 && shield2 != null)
       MoveTowards(shield2.transform);
   }
 
@@ -107,42 +89,39 @@ public class ComportamientoHumanoide : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.CompareTag("Shield_Tipo1") && !colorChanged)
+    if (other.CompareTag("Shield_Tipo1"))
     {
-      CambiarColor(Color.green);
-      colorChanged = true;
-      Debug.Log($"{name} cambió de color PERMANENTE al tocar escudo tipo 1");
+      if (humanoidRenderer != null)
+      {
+        Material m = new Material(humanoidRenderer.material);
+        m.color = Color.green;
+        humanoidRenderer.material = m;
+      }
+      Debug.Log($"{name} cambió de color al tocar un escudo tipo 1");
     }
-    if (other.CompareTag("Shield_Tipo2") && !colorChanged)
+    if (other.CompareTag("Shield_Tipo2"))
     {
-      CambiarColor(Color.red);
-      colorChanged = true;
-      Debug.Log($"{name} cambió de color PERMANENTE al tocar escudo tipo 2");
+      if (humanoidRenderer != null)
+      {
+        Material m = new Material(humanoidRenderer.material);
+        m.color = Color.red;
+        humanoidRenderer.material = m;
+      }
+      Debug.Log($"{name} cambió de color al tocar un escudo tipo 2");
     }
   }
 
-  void CambiarColor(Color nuevoColor)
+  private void OnTriggerExit(Collider other)
   {
-    if (humanoidRenderer != null)
+    if (other.CompareTag("Shield_Tipo1") || other.CompareTag("Shield_Tipo2"))
     {
-      Material m = new Material(humanoidRenderer.material);
-      m.color = nuevoColor;
-      humanoidRenderer.material = m;
-    }
-  }
-
-  void OnDestroy()
-  {
-    if (notificador != null)
-    {
-      if (CompareTag("Humanoide_Tipo1"))
+      if (humanoidRenderer != null)
       {
-        notificador.OnTriggerHumanoide2 -= OnHumanoide2Touched;
+        Material m = new Material(humanoidRenderer.material);
+        m.color = originalColor;
+        humanoidRenderer.material = m;
       }
-      else if (CompareTag("Humanoide_Tipo2"))
-      {
-        notificador.OnTriggerHumanoide1 -= OnHumanoide1Touched;
-      }
+      Debug.Log($"{name} volvió a su color original");
     }
   }
 }

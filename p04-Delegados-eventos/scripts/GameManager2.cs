@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
-  public static GameManager Instance;
+  public static GameManager2 Instance;
 
   [Header("Configuración del Juego")]
   public int maxEscudosEnMapa = 10;
@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
   private List<GameObject> escudosEnMapa = new List<GameObject>();
   private Dictionary<GameObject, float> escudosOcupados = new Dictionary<GameObject, float>();
   private List<ComportamientoHumanoide2> humanoidesConEscudoAlcanzado = new List<ComportamientoHumanoide2>();
-  private UIManager2 uiManager;
+  private UIManager3 uiManager;
   private PlayerMovement playerMovement;
+  private bool gameOver = false;
 
   void Awake()
   {
@@ -46,30 +47,68 @@ public class GameManager : MonoBehaviour
 
   void Start()
   {
-    uiManager = FindFirstObjectByType<UIManager2>();
+    uiManager = FindFirstObjectByType<UIManager3>();
     playerMovement = FindFirstObjectByType<PlayerMovement>();
 
-    if (playerMovement != null)
-    {
-      playerMovement.speed = velocidadJugador;
-    }
+    Debug.Log("GameManager iniciado - Buscando humanoides...");
 
-    InicializarEscudos();
-    AsignarEscudosPredefinidos();
+    // Verificar humanoides al inicio
+    ComportamientoHumanoide2[] humanoides = FindObjectsByType<ComportamientoHumanoide2>(FindObjectsSortMode.None);
+    Debug.Log($"Encontrados {humanoides.Length} humanoides en la escena");
+
     ActualizarUImejoras();
   }
 
   void Update()
   {
-    ActualizarEscudosOcupados();
-
+    if (!gameOver)
+    {
+      VerificarCondicionGameOver();
+    }
   }
   public void HumanoideLlegoEscudo(ComportamientoHumanoide2 humanoide)
   {
     if (!humanoidesConEscudoAlcanzado.Contains(humanoide))
     {
       humanoidesConEscudoAlcanzado.Add(humanoide);
-      Debug.Log($"🏁 {humanoide.name} alcanzó su escudo objetivo");
+      Debug.Log($"🏁 GameManager: {humanoide.name} alcanzó su escudo. Total: {humanoidesConEscudoAlcanzado.Count}");
+    }
+  }
+
+  void VerificarCondicionGameOver()
+  {
+    ComportamientoHumanoide2[] todosHumanoides = FindObjectsByType<ComportamientoHumanoide2>(FindObjectsSortMode.None);
+
+    if (todosHumanoides.Length == 0) return;
+
+    int humanoidesQueAlcanzaronEscudo = humanoidesConEscudoAlcanzado.Count;
+    int totalHumanoides = todosHumanoides.Length;
+
+    Debug.Log($"🔍 Game Over Check: {humanoidesQueAlcanzaronEscudo}/{totalHumanoides} humanoides alcanzaron escudo");
+
+    // Si TODOS los humanoides alcanzaron sus escudos
+    if (humanoidesQueAlcanzaronEscudo >= totalHumanoides && totalHumanoides > 0)
+    {
+      MostrarGameOver();
+    }
+  }
+
+  void MostrarGameOver()
+  {
+    if (gameOver) return;
+
+    gameOver = true;
+
+    Debug.Log("🎮 GAME OVER ACTIVADO - Todos los humanoides alcanzaron sus escudos");
+
+    if (uiManager != null)
+    {
+      uiManager.ShowGameOver();
+      Debug.Log("✅ Game Over UI mostrada");
+    }
+    else
+    {
+      Debug.LogError("❌ UIManager3 no encontrado para mostrar Game Over");
     }
   }
 

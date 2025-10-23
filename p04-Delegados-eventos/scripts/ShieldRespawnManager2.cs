@@ -5,18 +5,18 @@
 
 using UnityEngine;
 
-public class ShieldRespawnManager : MonoBehaviour
+public class ShieldRespawnManager2 : MonoBehaviour
 {
   public float respawnTime = 5f;
 
-  private ShieldCollectible3 shieldCollectible;
+  private ShieldCollectible4 shieldCollectible;
   private bool isCollected = false;
-  private GameManager gameManager;
+  private GameManager2 gameManager;
 
   void Start()
   {
-    shieldCollectible = GetComponent<ShieldCollectible3>();
-    gameManager = FindFirstObjectByType<GameManager>();
+    shieldCollectible = GetComponent<ShieldCollectible4>();
+    gameManager = FindFirstObjectByType<GameManager2>();
   }
 
   void OnTriggerEnter(Collider other)

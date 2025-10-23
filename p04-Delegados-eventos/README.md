@@ -80,9 +80,14 @@ Cubo: [Notificador3](./scripts/ej3/Notificador3.cs)
   * Los humanoides del grupo 1 se teletransportan a un escudo fijado.
   * Las humanoides del grupo 2 se orientan hacia un escudo fijado adicional se teletransportan.
 
+> Se usa una instancia de `ComportamientoHumanoide` pues si ya en este teng asignado los escudos a donde se dirigen simplemente le digo que de extra se haga un teletransporte cuando se toqeu el controlador requerido
+
 ![ejercicio4.gif](./gifs/ejercicio4.gif)   
 
 #### Ejercicio 5 <div id='cinco'/>
+
+> [!WARNING]  
+> Se han quitado los Humanoides para mejorar la visualizacion.
 
 * Añadir una puntuación para el jugador: [ScoreManager](./scripts/ej5/ScoreManager.cs) [ShieldCollectible]((./scripts/ej5/ShieldCollectible.cs))
   * Los escudos de tipo 1 suman 5 puntos.
@@ -92,10 +97,13 @@ Cubo: [Notificador3](./scripts/ej3/Notificador3.cs)
 
 #### Ejercicio 6 <div id='seis'/>
 
+> [!WARNING]  
+> Se han quitado los Humanoides para mejorar la visualizacion.
+
 * Interfaz que muestre la puntuación: 
 * Se hace soporte con [ScoreManager2](./scripts/ej6/ScoreManager2.cs) [UIManager](./scripts/ej6/UIManager.cs)
 
-Y un pueño cambio en el `ShieldCollector` en el OnTiggerEnter() cambiamos de 
+Y un pueño cambio en el `ShieldCollectable` en el OnTiggerEnter() cambiamos de 
 
 ```C#
 ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
@@ -128,13 +136,14 @@ Además de tenre un controlador para ello [GameManager ](./scripts/GameManager.c
 #### Ejercicio 8 <div id='ocho'/>
 
 * Escena:
-  * 
-  * 
+  * Humanoide_Tipo1 van a escudos_Tipo1 analogo a Humanoide_Tipo2 y escudos_Tipo2
+  * Los escudos se recolecatan, suman puntuación y reaparecen después de un tiempo en un sitio dentro del terreno, siempre y cuendo no este ahí el jugador, humanoides o ya exitea un escudo. 
+  * Los Humanoides intentarán ir a por su escudo y si lo consiguen, cambian su color y permanecen en el escudo un tiempo hasta que este se teletransporta de nuevo. Los humanoides son más lento que el jugador.
+  * Si todos los Humanoides llegan a sus escudos has perdido
 
 * Mecánicas:
-  * 
-  * 
-  * 
+  * Logica en [GameManager2.cs](.scripts/GameManager2.cs) y [ShieldRespawnManager2](./scripts/ShieldRespawnManager2.cs)
+  * Para el resto se usó [ScoreManager4](./scripts/ej8/ScoreManager4.cs), [ScoreManagShieldCollectible4](./scripts/ej8/ShieldCollectible4.cs) y [UIManager3](./scripts/ej8/UIManager3.cs)
 
 ![ejercicio8.gif](./gifs/ejercicio8.gif)   
 

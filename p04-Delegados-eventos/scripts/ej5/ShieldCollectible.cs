@@ -1,6 +1,6 @@
 /*
   ShieldCollectible.cs
-  Maneja la recolección de escudos
+  Maneja la recolección de escudos, asigna puntos y permite reactivación.
 */
 
 using UnityEngine;
@@ -44,6 +44,14 @@ public class ShieldCollectible : MonoBehaviour
       // 👇 DESACTIVAR COMPLETAMENTE el objeto
       gameObject.SetActive(false);
     }
+  }
+
+  // Método para reactivar el escudo
+  public void ReactivateShield()
+  {
+    collected = false;
+    gameObject.SetActive(true);
+    Debug.Log($"Escudo {name} reactivado");
   }
 
   public bool IsShieldActive()

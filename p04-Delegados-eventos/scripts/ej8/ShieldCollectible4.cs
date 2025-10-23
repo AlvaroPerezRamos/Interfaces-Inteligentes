@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class ShieldCollectible3 : MonoBehaviour
+public class ShieldCollectible4 : MonoBehaviour
 {
   [Header("Configuración")]
   public int points = 5;
   private bool collected = false;
   private Renderer shieldRenderer;
   private Collider shieldCollider;
-  private GameManager gameManager;
+  private GameManager2 gameManager;
 
   void Start()
   {
     shieldRenderer = GetComponent<Renderer>();
     shieldCollider = GetComponent<Collider>();
-    gameManager = GameManager.Instance;
+    gameManager = GameManager2.Instance;
 
     if (CompareTag("Shield_Tipo1"))
     {
@@ -39,7 +39,7 @@ public class ShieldCollectible3 : MonoBehaviour
         // Calcular puntos con multiplicador de ganancias
         int puntosFinales = Mathf.RoundToInt(points * gameManager.GetGananciasMultiplier());
 
-        ScoreManager3 scoreManager = FindFirstObjectByType<ScoreManager3>();
+        ScoreManager4 scoreManager = FindFirstObjectByType<ScoreManager4>();
         if (scoreManager != null)
         {
           scoreManager.AddPoints(puntosFinales);
