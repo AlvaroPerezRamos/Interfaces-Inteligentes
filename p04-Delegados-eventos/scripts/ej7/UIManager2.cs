@@ -42,7 +42,6 @@ public class UIManager2 : MonoBehaviour
     if (rewardText != null){
       rewardText.text = "";}
 
-    
     ActualizarMejoras(1f, 1f, 1f);
 
     if (mejorasPanel != null)

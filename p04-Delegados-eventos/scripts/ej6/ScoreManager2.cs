@@ -29,8 +29,6 @@ public class ScoreManager2 : MonoBehaviour
     if (uiManager != null)
     {
       uiManager.UpdateScore(score);
-
-
     }
   }
   public void ResetScore()

@@ -3,6 +3,8 @@
   Controla el movimiento del jugador utilizando Rigidbody.
 */
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]

@@ -1,11 +1,11 @@
 /*
   ShieldCollectible.cs
-  Maneja la recolección de escudos, asigna puntos y permite reactivación.
+  Maneja la recolección de escudos y asigna puntos 
 */
 
 using UnityEngine;
 
-public class ShieldCollectible : MonoBehaviour
+public class ShieldCollectible2 : MonoBehaviour
 {
   public int points = 5;
   private bool collected = false;
@@ -33,7 +33,7 @@ public class ShieldCollectible : MonoBehaviour
     {
       collected = true;
 
-      ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+      ScoreManager2 scoreManager = FindFirstObjectByType<ScoreManager2>();
       if (scoreManager != null)
       {
         scoreManager.AddPoints(points);

@@ -9,12 +9,14 @@ public class ShieldRespawnManager : MonoBehaviour
 {
   public float respawnTime = 5f;
 
-  private ShieldCollectible shieldCollectible;
+  private ShieldCollectible3 shieldCollectible;
   private bool isCollected = false;
+  private GameManager gameManager;
 
   void Start()
   {
-    shieldCollectible = GetComponent<ShieldCollectible>();
+    shieldCollectible = GetComponent<ShieldCollectible3>();
+    gameManager = FindFirstObjectByType<GameManager>();
   }
 
   void OnTriggerEnter(Collider other)
@@ -24,6 +26,10 @@ public class ShieldRespawnManager : MonoBehaviour
       isCollected = true;
 
       Debug.Log($"Escudo {name} recolectado");
+
+      // Aplicar multiplicador de respawn
+      float tiempoRespawn = respawnTime * gameManager.GetRespawnMultiplier();
+      Invoke("RespawnShield", tiempoRespawn);
     }
   }
 
@@ -38,5 +44,15 @@ public class ShieldRespawnManager : MonoBehaviour
     }
 
     Debug.Log($"Escudo {name} respawneado");
+  }
+
+  [ContextMenu("Force Respawn")]
+  public void ForceRespawn()
+  {
+    if (isCollected)
+    {
+      CancelInvoke("RespawnShield");
+      RespawnShield();
+    }
   }
 }

@@ -23,11 +23,11 @@
 
 * Cubo 
   * Movimiento cinemático: [PlayerMovement](./scripts/PlayerMovement.cs)
-  * Notificador: [Notificador](./scripts/Notificador.cs)
+  * Notificador: [Notificador](./scripts/ej1/Notificador.cs)
 * Esferas de tipo 1
-  * Suscriptoras: [SphereTipo1](./scripts/SphereTipo1.cs)
+  * Suscriptoras: [SphereTipo1](./scripts/ej1/SphereTipo1.cs)
 * Esferas de tipo 2
-  * Suscriptoras: [SphereTipo2](./scripts/SphereTipo2.cs)
+  * Suscriptoras: [SphereTipo2](./scripts/ej1/SphereTipo2.cs)
 
 * Funcionamiento:
   * Cuando el cubo colisiona con el cilindro:
@@ -43,9 +43,9 @@
 
 * Sustituir las esferas por Humanoides
 
-Cubo: [Notificador2](./scripts/Notificador2.cs)
-Humanoide_Tipo1 : [Respuesta_Tipo1](./scripts/HumanoideTipo1.cs)
-Humanoide_Tipo2 : [Respuesta_Tipo2](./scripts/HumanoideTipo2.cs)
+Cubo: [Notificador2](./scripts/ej2/Notificador2.cs)
+Humanoide_Tipo1 : [Respuesta_Tipo1](./scripts/ej2/HumanoideTipo1.cs)
+Humanoide_Tipo2 : [Respuesta_Tipo2](./scripts/ej2/HumanoideTipo2.cs)
 
 ![ejercicio2.gif](./gifs/ejercicio2.gif) 
 
@@ -66,15 +66,15 @@ Humanoide_Tipo2 : [Respuesta_Tipo2](./scripts/HumanoideTipo2.cs)
   * Los del tipo 1 van hacia un escudo del tipo 2.
   * Si tocan uno, deben cambiar de color.
 
-Cubo: [Notificador3](./scripts/Notificador3.cs)
-[ComportamientoHumanoide](./scripts/ComportamientoHumanoide.cs)
+Cubo: [Notificador3](./scripts/ej3/Notificador3.cs)
+[ComportamientoHumanoide](./scripts/ej3/ComportamientoHumanoide.cs)
 
 ![ejercicio3.gif](./gifs/ejercicio3.gif)
 
 #### Ejercicio 4 <div id='cuatro'/>
 
-* Cubo: [Notificador4](./scripts/Notificador4.cs)
-* [Teleport](./scripts/Teleport.cs)
+* Cubo: [Notificador4](./scripts//ej4/Notificador4.cs)
+* [Teleport](./scripts/ej4/Teleport.cs)
 
 * Cuando el cubo colisione con el cilindro:
   * Los humanoides del grupo 1 se teletransportan a un escudo fijado.
@@ -84,7 +84,7 @@ Cubo: [Notificador3](./scripts/Notificador3.cs)
 
 #### Ejercicio 5 <div id='cinco'/>
 
-* Añadir una puntuación para el jugador: [ScoreManager](./scripts/ScoreManager.cs) [ShieldCollectible]((./scripts/ShieldCollectible.cs))
+* Añadir una puntuación para el jugador: [ScoreManager](./scripts/ej5/ScoreManager.cs) [ShieldCollectible]((./scripts/ej5/ShieldCollectible.cs))
   * Los escudos de tipo 1 suman 5 puntos.
   * Los escudos de tipo 2 suman 10 puntos.
 
@@ -93,8 +93,14 @@ Cubo: [Notificador3](./scripts/Notificador3.cs)
 #### Ejercicio 6 <div id='seis'/>
 
 * Interfaz que muestre la puntuación: 
-* Se hace soporte con [ScoreManager2](./scripts/ScoreManager2.cs) [UIManager](./scripts/UIManager.cs)
+* Se hace soporte con [ScoreManager2](./scripts/ej6/ScoreManager2.cs) [UIManager](./scripts/ej6/UIManager.cs)
 
+Y un pueño cambio en el `ShieldCollector` en el OnTiggerEnter() cambiamos de 
+
+```C#
+ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+ScoreManager2 scoreManager = FindFirstObjectByType<ScoreManager2>();
+```
 [Canvas](https://docs.unity3d.com/ScriptReference/Canvas.html)
 
 ![ejercicio6.gif](./gifs/ejercicio6.gif)   
@@ -112,7 +118,7 @@ Para hacer esto posible se necestió que volvieran a aparecer los escudos.
 * La lógica del respawn está en [ShieldRespawnManager](./scripts/ShieldRespawnManager.cs)
 
 Para la aparición de los nuevos textos se tocó el UIManager, así como el comportamiento de los humanoides al qeuidarse sobre los escudos no se reseteba el color al estar en OnTarget(), además se debió tocar el sistema de puntos pues hay potenciadores.
-* Archivos modificaods [UIManager2](./scripts/UIManager2.cs), [ComportamientoHumanoide](./scripts/ComportamientoHumanoide2.cs) y  [ScoreManager3](./scripts/ScoreManager3.cs)
+* Archivos modificaods [UIManager2](./scripts/ej7/UIManager2.cs), [ComportamientoHumanoide](./scripts/ej7/ComportamientoHumanoide2.cs) y  [ScoreManager3](./scripts/ej7/ScoreManager3.cs)
 
 Además de tenre un controlador para ello [GameManager ](./scripts/GameManager.cs)
 
