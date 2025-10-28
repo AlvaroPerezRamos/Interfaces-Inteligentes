@@ -1,9 +1,6 @@
-# Escenas cardboard (1)
+# Escenas cardboard
 * Álvaro Pérez Ramos
 * alu0101574042@ull.edu.es
-
-> [!WARNING]  
-> Los gifs tardan un poco en cargar al abrirlo desde GitHub.
 
 ## Guía de inicio rápido de Google Cardboard para Unity
 
